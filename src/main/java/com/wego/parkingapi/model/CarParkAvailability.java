@@ -3,10 +3,14 @@ package com.wego.parkingapi.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.SqlResultSetMapping;
 import javax.persistence.Table;
 import com.google.gson.Gson;
-
+import com.wego.parkingapi.string.*;
 /**
  * Model for car park available update.
  *
@@ -15,6 +19,23 @@ import com.google.gson.Gson;
  * @author       Huynh Xuan An
  * @version      1.0
  */
+@Entity
+@SqlResultSetMapping(
+	    name =Configuration.carParkResultSetMappingName,	 
+	    classes = {
+	        @ConstructorResult(
+        		  targetClass = CarParkAvailableResult.class,
+	            columns = {
+	                @ColumnResult(name = "address")
+	                , @ColumnResult(name = "latitude",type = Double.class)	 
+	                , @ColumnResult(name = "longitude",type = Double.class)	 
+	                , @ColumnResult(name = "total_lots", type = Integer.class)	 
+	                , @ColumnResult(name = "available_lots",type = Integer.class)	 
+	            }	          
+	        )
+	    }
+	)
+
 @Table (name = "car_park_availability")
 public class CarParkAvailability {
 	private String car_park_no;
