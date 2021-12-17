@@ -38,7 +38,7 @@ import com.wego.parkingapi.string.*;
 
 @Table (name = "car_park_availability")
 public class CarParkAvailability {
-	private String car_park_no;
+	private String carpark_number;
     private ArrayList<Object> carpark_info;
     private Integer  total_lots = 0;
     private Integer  available_lots = 0;	
@@ -67,16 +67,16 @@ public class CarParkAvailability {
 	@Override
     public String toString() {
 		recalculateLots();
-        return "CarPark [car_park_no=" + car_park_no + ", available_lots=" +available_lots + "]";
+        return "CarPark [car_park_no=" + carpark_number + ", available_lots=" +available_lots + "]";
     }
 	
 	@Id
 	@Column (name ="car_park_no")
-	public String getCar_park_no() {
-		return car_park_no;
+	public String getCarpark_number() {
+		return carpark_number;
 	}
-	public void setCar_park_no(String car_park_no) {
-		this.car_park_no = car_park_no;
+	public void setCarpark_number(String carpark_number) {
+		this.carpark_number = carpark_number;
 	}
 	@Column (name ="total_lots")
 	public Integer getTotal_lots() {
