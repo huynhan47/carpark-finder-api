@@ -1,6 +1,6 @@
 package com.wego.parkingapi.string;
 /**
- * Configuration:  for declare configuration query
+ * Configuration:  for declare  query
  *
  * Bugs: none known
  * Issues: none known
