@@ -22,7 +22,19 @@ Car Park data scope is in Singapore.
 4. How to make project runnable
 - Use MySQL backup file at src\main\resources\parkingdb to import database structure and data.
 - Modified database connection information in src\main\resources\META-INF as your environtment information
-- Build project .war file and deploy to a Java Wep Application Server like Tomcat (or to .jar file and make a self running Wep Application Server inside) 
+- Build project to .war file and deploy to a Java Wep Application Server like Tomcat (or to .jar file and make a self running Wep Application Server inside) 
 - Use an API testing tool to check result.
+
+5. API usage for quickly checking result
+  I've already deploy API to http://45.76.98.33:8080/carparks
+  Let check API by try something like below in API testing tool (Postman)
+  - http://45.76.98.33:8080/carparks/update : For update live car park information, return HTTP Status 200 (OK) when success
+  - http://45.76.98.33:8080/carparks/nearest?latitude=1.36670794137058&longitude=103.841712811889&page=4&per_page=5 : For finding nearest car park available base on coordinates input
+
+6. Technical keywork use
+  Java, MySQL, Spring, SpringBoot, JPA, RESTful API, Maven
+  
+7. Conclusion
+  - This is just a demo for interview session of Huynh Xuan An to Wego company, not complete software product. So, it not yet implement validation and test carefully
 
 
