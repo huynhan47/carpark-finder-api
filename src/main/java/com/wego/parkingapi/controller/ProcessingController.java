@@ -5,12 +5,14 @@ import java.lang.reflect.Type;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import javax.net.ssl.HttpsURLConnection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -100,5 +102,28 @@ public class ProcessingController {
 			sc.close();
 		}
 		return rawCarParkResult;
+	}
+	/**
+     * Get car park available base on coordinates input and paging information
+     * return: List<CarParkAvailableResult>
+     */
+	@SuppressWarnings("unchecked")
+	public List<CarParkAvailableResult> getNearestCarparkInfo(double latitude, double longitude, int page , int perPage)	{
+				  
+		List<CarParkAvailableResult> results;
+
+		//calculate offset for sql query base on page number and record per page information
+		int offset = perPage * (page -1);
+		
+		//Create native query with named parameter 
+		Query getCarParkAvailabilityNativeQuery = entityManager.createNativeQuery(QuerySet.getCarParkAvailabilityQuery,Configuration.carParkResultSetMappingName);
+		getCarParkAvailabilityNativeQuery
+			.setParameter("latitude", latitude)
+			.setParameter("longitude", longitude)
+			.setParameter("limit", perPage)
+			.setParameter("offset", offset)
+			;
+		results = getCarParkAvailabilityNativeQuery.getResultList();
+		return results;
 	}
 }
