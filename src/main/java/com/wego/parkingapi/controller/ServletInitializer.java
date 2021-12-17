@@ -1,4 +1,4 @@
-package com.wego.parkingapi;
+package com.wego.parkingapi.controller;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
