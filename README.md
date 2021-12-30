@@ -1,5 +1,5 @@
 # carpark-finder-api
-A small car park finder api for demo to wego interview session.
+A small car park finder api
 
 1.  Business requirement:
 Client input their latitude and longitude data, with paging information also, server response a subset of Car Parking available nearest to them.
@@ -34,7 +34,6 @@ Car Park data scope is in Singapore.
 6. Technical keywork use
   Java, MySQL, Spring, SpringBoot, JPA, RESTful API, Maven.
   
-7. Conclusion
-  - This is just a demo for interview session of Huynh Xuan An to Wego company, not complete software product. So, it not yet implement validation and test carefully.
+
 
 
